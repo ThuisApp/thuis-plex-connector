@@ -1,4 +1,14 @@
 language: java
 jdk:
-  - oraclejdk8
-  - oraclejdk11
+- oraclejdk8
+- oraclejdk11
+
+addons:
+  sonarcloud:
+    organization: "thuisapp"
+    token:
+      secure: "brP3Si0qPcXkVFL33PWAiXjr1NXBhovp0v+bdlkRpsVa9dYaTcwn2UjhYZtDIe6Qd6vr6Oq9dNSKMDq4HGe8vxOs3j0v3xAUND02qwEz3Dm3wKpl/x4e+olDswAkE/K89dispbADU9H8Oy+2qmkb2h+wbymFWnT4YKEXFM9/ZmwrUHsrSV8rZZdaKNER5JLhvlDfp9agfy9N7+W2gw9foiDUQnriWyozvydEMA3LnFPOTwWfdDpefuYN0OfWF+WhB8TcrPzpuU47grD9Kk5CXI1uXc2BhEmBE5y/9jj5jV6T5zS1lab42fXIuwgN4xNuzFspLT/hy/phMEfoMqZJTJDnBozgI+RE0XL1rns9d91L/i6eX5nRDdsHT8KkqNrPSHzhHk5UeP5Gbp5rlnjR2hIrwyvNtiEzpgAsUWVsaa1hUO3+nMFRvbI8FNZUHbn9EH0y23Zk0zlLoyu3QDTEpyvklG93FUwxCSw+4S0+lQP/iWZSrknhrSp5lYR/K9COgpij2IwAw6rxvxohmQQ1MLTfgnSbSJXqwx6DbRWAN5HqobqZe4wrcneXZ6+lsqSElyWpNmQYVml8lCH93UdijMK3NHppgfbTuxIinX6kZpL5I2GzulB6VxLPpYiKhThD6xurBALXc2twHYs6DL3eq/fJ9ACVLrZn2N1S4HZkgPI="
+
+script:
+  # JaCoCo is used to have code coverage, the agent has to be activated
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
