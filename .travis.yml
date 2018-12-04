@@ -3,6 +3,11 @@ jdk:
 - oraclejdk8
 - oraclejdk11
 
+deploy:
+  provider: script
+  script: mvn deploy -Dmaven.test.skip -s settings.xml
+  skip_cleanup: true
+
 addons:
   sonarcloud:
     organization: "thuisapp"
