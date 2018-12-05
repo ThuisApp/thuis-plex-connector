@@ -1,23 +1,23 @@
 package com.thuisapp.model;
 
 import com.thuisapp.adapter.WebhookEventAdapter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.json.bind.annotation.JsonbTypeAdapter;
 import java.util.Arrays;
 import java.util.Optional;
 
-@ToString
+@Data
 public class Webhook {
 
 	@JsonbTypeAdapter(WebhookEventAdapter.class)
-	public Event event;
-	public boolean user;
-	public boolean owner;
-	public Account account;
-	public Server server;
-	public Player player;
-	public Metadata metadata;
+	private Event event;
+	private boolean user;
+	private boolean owner;
+	private Account account;
+	private Server server;
+	private Player player;
+	private Metadata metadata;
 
 	public enum Event {
 		PLAY("media.play", "playing"),

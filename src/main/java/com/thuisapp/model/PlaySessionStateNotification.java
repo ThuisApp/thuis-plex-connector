@@ -1,25 +1,25 @@
 package com.thuisapp.model;
 
 import com.thuisapp.adapter.PlaySessionStateNotificationStateAdapter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.json.bind.annotation.JsonbTypeAdapter;
 import java.net.URI;
 import java.util.Arrays;
 
-@ToString
+@Data
 public class PlaySessionStateNotification {
 
-	public String guid;
-	public URI key;
-	public String ratingKey;
-	public String sessionKey;
+	private String guid;
+	private URI key;
+	private String ratingKey;
+	private String sessionKey;
 	@JsonbTypeAdapter(PlaySessionStateNotificationStateAdapter.class)
-	public State state;
-	public String transcodeSession;
-	public String url;
-	public Long viewOffset;
-	public Long playQueueItemID;
+	private State state;
+	private String transcodeSession;
+	private String url;
+	private Long viewOffset;
+	private Long playQueueItemID;
 
 	public enum State {
 		BUFFERING("buffering"),

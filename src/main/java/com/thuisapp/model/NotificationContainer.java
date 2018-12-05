@@ -1,14 +1,14 @@
 package com.thuisapp.model;
 
-import lombok.ToString;
+import lombok.Data;
 
 import java.util.List;
 
-@ToString
+@Data
 public class NotificationContainer {
 
-	public String type;
-	public Long size;
-	public List<PlaySessionStateNotification> playSessionStateNotification;
+	private String type;
+	private Long size;
+	private List<PlaySessionStateNotification> playSessionStateNotification;
 
 }

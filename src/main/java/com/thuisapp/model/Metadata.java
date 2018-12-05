@@ -1,33 +1,33 @@
 package com.thuisapp.model;
 
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
+@Data
 public class Metadata {
 
-	public String librarySectionType;
-	public String ratingKey;
-	public String key;
-	public String parentRatingKey;
-	public String grandparentRatingKey;
-	public String guid;
-	public String librarySectionID;
-	public String type;
-	public String title;
-	public String grandparentKey;
-	public String parentKey;
-	public String grandparentTitle;
-	public String parentTitle;
-	public String summary;
-	public Long index;
-	public Long parentIndex;
-	public Long ratingCount;
-	public String thumb;
-	public String art;
-	public String parentThumb;
-	public String grandparentThumb;
-	public String grandparentArt;
-	public Long addedAt;
-	public Long updatedAt;
+	private String librarySectionType;
+	private String ratingKey;
+	private String key;
+	private String parentRatingKey;
+	private String grandparentRatingKey;
+	private String guid;
+	private String librarySectionID;
+	private String type;
+	private String title;
+	private String grandparentKey;
+	private String parentKey;
+	private String grandparentTitle;
+	private String parentTitle;
+	private String summary;
+	private Long index;
+	private Long parentIndex;
+	private Long ratingCount;
+	private String thumb;
+	private String art;
+	private String parentThumb;
+	private String grandparentThumb;
+	private String grandparentArt;
+	private Long addedAt;
+	private Long updatedAt;
 
 }

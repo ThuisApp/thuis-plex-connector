@@ -29,7 +29,7 @@ public class WebhookEndpoint {
 		if (webhook != null) {
 			logger.log(Level.FINE, "Received webhook: " + webhook);
 
-			Event<Webhook> event = webhookEvent.select(new WebhookEventLiteral(webhook.event));
+			Event<Webhook> event = webhookEvent.select(new WebhookEventLiteral(webhook.getEvent()));
 			event.fireAsync(webhook);
 		}
 	}

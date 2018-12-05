@@ -1,12 +1,12 @@
 package com.thuisapp.model;
 
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
+@Data
 public class Account {
 
-	public Long id;
-	public String thumb;
-	public String title;
+	private Long id;
+	private String thumb;
+	private String title;
 
 }

@@ -1,11 +1,11 @@
 package com.thuisapp.model;
 
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
+@Data
 public class Server {
 
-	public String title;
-	public String uuid;
+	private String title;
+	private String uuid;
 
 }

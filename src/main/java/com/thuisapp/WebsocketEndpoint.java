@@ -55,9 +55,9 @@ public class WebsocketEndpoint {
 	}
 
 	public void onMessage(Notification notification) {
-		if (notification != null && notification.notificationContainer.playSessionStateNotification != null) {
-			notification.notificationContainer.playSessionStateNotification.forEach(playSessionStateNotification -> {
-				Event<PlaySessionStateNotification> event = playSessionEvent.select(new PlaySessionEventLiteral(playSessionStateNotification.state));
+		if (notification != null && notification.getNotificationContainer().getPlaySessionStateNotification() != null) {
+			notification.getNotificationContainer().getPlaySessionStateNotification().forEach(playSessionStateNotification -> {
+				Event<PlaySessionStateNotification> event = playSessionEvent.select(new PlaySessionEventLiteral(playSessionStateNotification.getState()));
 				event.fireAsync(playSessionStateNotification);
 			});
 		}

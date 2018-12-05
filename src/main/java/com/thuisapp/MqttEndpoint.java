@@ -46,40 +46,40 @@ public class MqttEndpoint implements MqttCallbackExtended {
 	private Map<String, String> sessions = new HashMap<>();
 
 	public void onWebhook(@ObservesAsync Webhook webhook) {
-		webhook.event.getPlayState().ifPresent(playState -> publish(webhook.player.title, "/state", playState));
+		webhook.getEvent().getPlayState().ifPresent(playState -> publish(webhook.getPlayer().getTitle(), "/state", playState));
 	}
 
 	public void onPlay(@ObservesAsync @WebhookEvent(value = Webhook.Event.PLAY) Webhook webhook) {
 		// Not ideal way of linking webhooks to websocket
-		sessions.put(webhook.metadata.ratingKey, webhook.player.title);
+		sessions.put(webhook.getMetadata().getRatingKey(), webhook.getPlayer().getTitle());
 
-		publish(webhook.player.title, "/state/title", webhook.metadata.title);
-		publish(webhook.player.title, "/state/summary", webhook.metadata.summary);
-		publish(webhook.player.title, "/state/art", plexUtil.buildUri(webhook.metadata.art));
-		publish(webhook.player.title, "/state/thumb", plexUtil.buildUri(webhook.metadata.thumb));
-		publish(webhook.player.title, "/state/grandparentTitle", webhook.metadata.grandparentTitle);
-		publish(webhook.player.title, "/state/grandparentThumb", plexUtil.buildUri(webhook.metadata.grandparentThumb));
+		publish(webhook.getPlayer().getTitle(), "/state/title", webhook.getMetadata().getTitle());
+		publish(webhook.getPlayer().getTitle(), "/state/summary", webhook.getMetadata().getSummary());
+		publish(webhook.getPlayer().getTitle(), "/state/art", plexUtil.buildUri(webhook.getMetadata().getArt()));
+		publish(webhook.getPlayer().getTitle(), "/state/thumb", plexUtil.buildUri(webhook.getMetadata().getThumb()));
+		publish(webhook.getPlayer().getTitle(), "/state/grandparentTitle", webhook.getMetadata().getGrandparentTitle());
+		publish(webhook.getPlayer().getTitle(), "/state/grandparentThumb", plexUtil.buildUri(webhook.getMetadata().getGrandparentThumb()));
 		// TODO: grab duration from the API
 		// publish(webhook.player.title, "/state/duration", webhook.metadata.duration);
 	}
 
 	public void onNotification(@ObservesAsync PlaySessionStateNotification notification) {
-		ofNullable(sessions.get(notification.ratingKey))
-				.ifPresent(playerTitle -> publish(playerTitle, "/state/viewOffset", notification.viewOffset + ""));
+		ofNullable(sessions.get(notification.getRatingKey()))
+				.ifPresent(playerTitle -> publish(playerTitle, "/state/viewOffset", notification.getViewOffset() + ""));
 	}
 
 
 	public void onStop(@ObservesAsync @WebhookEvent(value = Webhook.Event.STOP) Webhook webhook) {
-		sessions.remove(webhook.metadata.ratingKey);
+		sessions.remove(webhook.getMetadata().getRatingKey());
 
-		publish(webhook.player.title, "/state/title", "");
-		publish(webhook.player.title, "/state/summary", "");
-		publish(webhook.player.title, "/state/art", "");
-		publish(webhook.player.title, "/state/thumb", "");
-		publish(webhook.player.title, "/state/grandparentTitle", "");
-		publish(webhook.player.title, "/state/grandparentThumb", "");
-		publish(webhook.player.title, "/state/duration", "");
-		publish(webhook.player.title, "/state/viewOffset", "");
+		publish(webhook.getPlayer().getTitle(), "/state/title", "");
+		publish(webhook.getPlayer().getTitle(), "/state/summary", "");
+		publish(webhook.getPlayer().getTitle(), "/state/art", "");
+		publish(webhook.getPlayer().getTitle(), "/state/thumb", "");
+		publish(webhook.getPlayer().getTitle(), "/state/grandparentTitle", "");
+		publish(webhook.getPlayer().getTitle(), "/state/grandparentThumb", "");
+		publish(webhook.getPlayer().getTitle(), "/state/duration", "");
+		publish(webhook.getPlayer().getTitle(), "/state/viewOffset", "");
 	}
 
 	public void init(@Observes @Initialized(ApplicationScoped.class) Object event) {

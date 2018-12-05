@@ -1,13 +1,13 @@
 package com.thuisapp.model;
 
-import lombok.ToString;
+import lombok.Data;
 
 import javax.json.bind.annotation.JsonbProperty;
 
-@ToString
+@Data
 public class Notification {
 
 	@JsonbProperty("NotificationContainer")
-	public NotificationContainer notificationContainer;
+	private NotificationContainer notificationContainer;
 
 }

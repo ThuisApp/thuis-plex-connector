@@ -1,13 +1,13 @@
 package com.thuisapp.model;
 
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
+@Data
 public class Player {
 
-	public boolean local;
-	public String publicAddress;
-	public String title;
-	public String uuid;
+	private boolean local;
+	private String publicAddress;
+	private String title;
+	private String uuid;
 
 }
