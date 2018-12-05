@@ -2,6 +2,7 @@ package com.thuisapp.adapter;
 
 import com.thuisapp.model.Notification;
 
+import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.json.bind.JsonbException;
 import javax.websocket.Decoder;
@@ -12,10 +13,12 @@ import java.util.logging.Logger;
 public class NotificationDecoder implements Decoder.Text<Notification> {
 	private static final Logger logger = Logger.getLogger(NotificationDecoder.class.getName());
 
+	private Jsonb jsonb;
+
 	@Override
 	public Notification decode(String string) {
 		try {
-			return JsonbBuilder.create().fromJson(string, Notification.class);
+			return jsonb.fromJson(string, Notification.class);
 		} catch (JsonbException e) {
 			logger.log(Level.WARNING, "Could not decode Plex WebSocket Notification", e);
 			return null;
@@ -29,11 +32,15 @@ public class NotificationDecoder implements Decoder.Text<Notification> {
 
 	@Override
 	public void init(EndpointConfig config) {
-		// do nothing
+		jsonb = JsonbBuilder.create();
 	}
 
 	@Override
 	public void destroy() {
-		// do nothing
+		try {
+			jsonb.close();
+		} catch (Exception e) {
+			logger.log(Level.WARNING, "Could not close Jsonb", e);
+		}
 	}
 }
