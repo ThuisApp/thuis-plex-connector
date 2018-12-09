@@ -1,6 +1,6 @@
-package com.thuisapp.event;
+package com.thuisapp.connector.plex.event;
 
-import com.thuisapp.model.PlaySessionStateNotification;
+import com.thuisapp.connector.plex.model.PlaySessionStateNotification;
 
 import javax.enterprise.util.AnnotationLiteral;
 

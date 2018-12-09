@@ -1,4 +1,4 @@
-package com.thuisapp.util;
+package com.thuisapp.connector.plex.util;
 
 import org.eclipse.microprofile.config.Config;
 

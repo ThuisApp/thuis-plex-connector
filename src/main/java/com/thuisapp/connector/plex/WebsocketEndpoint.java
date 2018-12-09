@@ -1,12 +1,12 @@
-package com.thuisapp;
+package com.thuisapp.connector.plex;
 
-import com.thuisapp.adapter.NotificationDecoder;
-import com.thuisapp.event.PlaySessionEventLiteral;
-import com.thuisapp.event.WebhookEvent;
-import com.thuisapp.model.Notification;
-import com.thuisapp.model.PlaySessionStateNotification;
-import com.thuisapp.model.Webhook;
-import com.thuisapp.util.PlexUtil;
+import com.thuisapp.connector.plex.adapter.NotificationDecoder;
+import com.thuisapp.connector.plex.event.PlaySessionEventLiteral;
+import com.thuisapp.connector.plex.event.WebhookEvent;
+import com.thuisapp.connector.plex.model.Notification;
+import com.thuisapp.connector.plex.model.PlaySessionStateNotification;
+import com.thuisapp.connector.plex.model.Webhook;
+import com.thuisapp.connector.plex.util.PlexUtil;
 import org.glassfish.tyrus.ext.client.java8.SessionBuilder;
 
 import javax.annotation.PreDestroy;

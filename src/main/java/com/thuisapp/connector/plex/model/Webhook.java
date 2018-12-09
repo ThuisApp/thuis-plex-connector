@@ -1,6 +1,6 @@
-package com.thuisapp.model;
+package com.thuisapp.connector.plex.model;
 
-import com.thuisapp.adapter.WebhookEventAdapter;
+import com.thuisapp.connector.plex.adapter.WebhookEventAdapter;
 import lombok.Data;
 
 import javax.json.bind.annotation.JsonbTypeAdapter;

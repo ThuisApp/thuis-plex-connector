@@ -1,7 +1,7 @@
-package com.thuisapp;
+package com.thuisapp.connector.plex;
 
-import com.thuisapp.event.WebhookEventLiteral;
-import com.thuisapp.model.Webhook;
+import com.thuisapp.connector.plex.event.WebhookEventLiteral;
+import com.thuisapp.connector.plex.model.Webhook;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
 import javax.enterprise.context.RequestScoped;

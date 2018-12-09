@@ -1,6 +1,6 @@
-package com.thuisapp.adapter;
+package com.thuisapp.connector.plex.adapter;
 
-import com.thuisapp.model.Notification;
+import com.thuisapp.connector.plex.model.Notification;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;

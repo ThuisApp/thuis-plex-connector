@@ -1,4 +1,4 @@
-package com.thuisapp;
+package com.thuisapp.connector.plex;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

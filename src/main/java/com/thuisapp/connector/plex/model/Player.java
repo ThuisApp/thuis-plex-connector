@@ -1,4 +1,4 @@
-package com.thuisapp.model;
+package com.thuisapp.connector.plex.model;
 
 import lombok.Data;
 

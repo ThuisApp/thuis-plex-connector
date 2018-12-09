@@ -1,6 +1,6 @@
-package com.thuisapp.adapter;
+package com.thuisapp.connector.plex.adapter;
 
-import com.thuisapp.model.PlaySessionStateNotification;
+import com.thuisapp.connector.plex.model.PlaySessionStateNotification;
 
 import javax.json.bind.adapter.JsonbAdapter;
 

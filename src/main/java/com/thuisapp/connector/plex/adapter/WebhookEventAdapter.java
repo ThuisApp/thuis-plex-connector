@@ -1,6 +1,6 @@
-package com.thuisapp.adapter;
+package com.thuisapp.connector.plex.adapter;
 
-import com.thuisapp.model.Webhook;
+import com.thuisapp.connector.plex.model.Webhook;
 
 import javax.json.bind.adapter.JsonbAdapter;
 

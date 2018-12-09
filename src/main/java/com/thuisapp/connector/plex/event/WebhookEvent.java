@@ -1,6 +1,6 @@
-package com.thuisapp.event;
+package com.thuisapp.connector.plex.event;
 
-import com.thuisapp.model.PlaySessionStateNotification;
+import com.thuisapp.connector.plex.model.Webhook;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.ElementType;
@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.PARAMETER)
-public @interface PlaySessionEvent {
+public @interface WebhookEvent {
 
-	PlaySessionStateNotification.State value();
+	Webhook.Event value();
 
 }
