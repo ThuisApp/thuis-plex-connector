@@ -3,6 +3,7 @@ package com.thuisapp.connector.plex.model;
 import com.thuisapp.connector.plex.adapter.WebhookEventAdapter;
 import lombok.Data;
 
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTypeAdapter;
 import java.util.Arrays;
 import java.util.Optional;
@@ -14,9 +15,13 @@ public class Webhook {
 	private Event event;
 	private boolean user;
 	private boolean owner;
+	@JsonbProperty("Account")
 	private Account account;
+	@JsonbProperty("Server")
 	private Server server;
+	@JsonbProperty("Player")
 	private Player player;
+	@JsonbProperty("Metadata")
 	private Metadata metadata;
 
 	public enum Event {

@@ -2,6 +2,7 @@ package com.thuisapp.connector.plex;
 
 import com.thuisapp.connector.plex.event.WebhookEventLiteral;
 import com.thuisapp.connector.plex.model.Webhook;
+import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
 import javax.enterprise.context.RequestScoped;
@@ -25,7 +26,10 @@ public class WebhookEndpoint {
 
 	@POST
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	public void handleMultipartWebhook(@FormDataParam("payload") Webhook webhook, @FormDataParam("thumb") File thumb) {
+	public void handleMultipartWebhook(@FormDataParam("payload") FormDataBodyPart payload, @FormDataParam("thumb") File thumb) {
+		payload.setMediaType(MediaType.APPLICATION_JSON_TYPE);
+		Webhook webhook = payload.getValueAs(Webhook.class);
+
 		if (webhook != null) {
 			logger.log(Level.FINE, "Received webhook: " + webhook);
 
