@@ -43,6 +43,16 @@
         <developerConnection>scm:git:git@github.com:ThuisApp/thuis-plex-connector</developerConnection>
     </scm>
 
+	<repositories>
+		<repository>
+			<id>sonatype-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<snapshots>
+				<updatePolicy>interval:15</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -91,6 +101,8 @@
     </dependencies>
 
     <build>
+        <finalName>thuis-plex-connector</finalName>
+
         <plugins>
             <plugin>
                 <groupId>io.quarkus</groupId>
