@@ -2,19 +2,19 @@ package com.thuisapp.connector.plex.util;
 
 import org.eclipse.microprofile.config.Config;
 
-import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
 
-@Stateless
+@ApplicationScoped
 public class PlexUtil {
 
 	private static final String PLEX_TOKEN_KEY = "X-Plex-Token";
 	private static final String WS_PATH = "/:/websockets/notifications";
 
 	@Inject
-	private Config config;
+	Config config;
 
 	public String buildUri(String path) {
 		return createBuilder(path).build().toString();

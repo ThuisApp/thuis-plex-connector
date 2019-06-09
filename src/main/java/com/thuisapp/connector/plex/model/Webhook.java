@@ -1,18 +1,19 @@
 package com.thuisapp.connector.plex.model;
 
-import com.thuisapp.connector.plex.adapter.WebhookEventAdapter;
 import lombok.Data;
 
 import javax.json.bind.annotation.JsonbProperty;
-import javax.json.bind.annotation.JsonbTypeAdapter;
 import java.util.Arrays;
 import java.util.Optional;
 
 @Data
 public class Webhook {
 
-	@JsonbTypeAdapter(WebhookEventAdapter.class)
-	private Event event;
+	// TODO: temporarily use String with a custom getter until https://github.com/quarkusio/quarkus/issues/1656 is fixed
+	// @JsonbTypeAdapter(WebhookEventAdapter.class)
+	// private Event event;
+	private String event;
+
 	private boolean user;
 	private boolean owner;
 	@JsonbProperty("Account")
@@ -23,6 +24,10 @@ public class Webhook {
 	private Player player;
 	@JsonbProperty("Metadata")
 	private Metadata metadata;
+
+	public Event getEvent() {
+		return Event.of(event);
+	}
 
 	public enum Event {
 		PLAY("media.play", "playing"),

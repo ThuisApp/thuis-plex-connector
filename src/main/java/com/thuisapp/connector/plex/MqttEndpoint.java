@@ -18,10 +18,10 @@ import static java.util.Optional.ofNullable;
 public class MqttEndpoint {
 
 	@Inject
-	private MqttClient client;
+	MqttClient client;
 
 	@Inject
-	private PlexUtil plexUtil;
+	PlexUtil plexUtil;
 
 	private Map<String, String> sessions = new HashMap<>();
 
