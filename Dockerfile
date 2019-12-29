@@ -1,8 +1,3 @@
-# docker build -t thuisapp/thuis-plex-connector .
-# kubectl run thuis-plex-connector --image=thuisapp/thuis-plex-connector --port=8080 --image-pull-policy=IfNotPresent
-# kubectl expose deployment thuis-plex-connector --type=NodePort
-# minikube service thuis-plex-connector --url
-
 #
 # Build stage
 #

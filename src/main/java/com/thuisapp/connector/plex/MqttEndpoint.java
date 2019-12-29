@@ -5,7 +5,9 @@ import com.thuisapp.connector.plex.model.PlaySessionStateNotification;
 import com.thuisapp.connector.plex.model.Webhook;
 import com.thuisapp.mqtt.MqttClient;
 import com.thuisapp.connector.plex.util.PlexUtil;
+import io.quarkus.runtime.StartupEvent;
 
+import javax.enterprise.event.Observes;
 import javax.enterprise.event.ObservesAsync;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -24,6 +26,10 @@ public class MqttEndpoint {
 	PlexUtil plexUtil;
 
 	private Map<String, String> sessions = new HashMap<>();
+
+	private void onStartup(@Observes StartupEvent event) {
+		// Force eager instantiation
+	}
 
 	public void onWebhook(@ObservesAsync Webhook webhook) {
 		webhook.getEvent().getPlayState().ifPresent(playState -> client.publish(webhook.getPlayer().getTitle(), "/state", playState));
